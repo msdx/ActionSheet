@@ -18,7 +18,7 @@ import android.widget.ListView;
  * @author haohang
  * @version 15-5-24.
  */
-public class ActionSheet extends Dialog {
+public class ActionSheetDialog extends Dialog {
     private Button mCancel;
     private ListView mMenuItems;
     private ArrayAdapter<String> mAdapter;
@@ -31,7 +31,7 @@ public class ActionSheet extends Dialog {
 
     private boolean isDismissing;
 
-    public ActionSheet(Context context) {
+    public ActionSheetDialog(Context context) {
         super(context, R.style.ActionSheetDialog);
         getWindow().setGravity(Gravity.BOTTOM);
         initView(context);
@@ -111,7 +111,7 @@ public class ActionSheet extends Dialog {
         });
     }
 
-    public ActionSheet addMenuItem(String items) {
+    public ActionSheetDialog addMenuItem(String items) {
         mAdapter.add(items);
         return this;
     }

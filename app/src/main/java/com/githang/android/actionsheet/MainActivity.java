@@ -7,7 +7,7 @@ import android.widget.Toast;
 
 
 public class MainActivity extends ActionBarActivity {
-    private ActionSheet mActionSheet;
+    private ActionSheetDialog mActionSheetDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,10 +28,10 @@ public class MainActivity extends ActionBarActivity {
      */
     @Override
     public boolean onMenuOpened(int featureId, Menu menu) {
-        if (mActionSheet == null) {
-            mActionSheet = new ActionSheet(this);
-            mActionSheet.addMenuItem("Test1").addMenuItem("Test2");
-            mActionSheet.setMenuListener(new ActionSheet.MenuListener() {
+        if (mActionSheetDialog == null) {
+            mActionSheetDialog = new ActionSheetDialog(this);
+            mActionSheetDialog.addMenuItem("Test1").addMenuItem("Test2");
+            mActionSheetDialog.setMenuListener(new ActionSheetDialog.MenuListener() {
                 @Override
                 public void onItemSelected(int position, String item) {
                     Toast.makeText(MainActivity.this, item, Toast.LENGTH_SHORT).show();
@@ -43,7 +43,7 @@ public class MainActivity extends ActionBarActivity {
                 }
             });
         }
-        mActionSheet.show();
+        mActionSheetDialog.show();
         return true;
     }
 
