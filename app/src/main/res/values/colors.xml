@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <color name="menu_item_normal">#c9ffffff</color>
-    <color name="menu_item_pressed">#d5dadada</color>
-    <color name="menu_text">#f12162ff</color>
-</resources>
