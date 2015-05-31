@@ -1,9 +1,11 @@
-package com.githang.android.actionsheet;
+package com.githang.android.actionsheet.demo;
 
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.widget.Toast;
+
+import com.githang.android.actionsheet.ActionSheetDialog;
 
 
 public class MainActivity extends ActionBarActivity {

@@ -14,6 +14,8 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 
+import com.githang.android.actionsheet.demo.R;
+
 /**
  * @author haohang
  * @version 15-5-24.
@@ -162,7 +164,7 @@ public class ActionSheetDialog extends Dialog {
         return super.onKeyDown(keyCode, event);
     }
 
-    interface MenuListener {
+    public interface MenuListener {
         void onItemSelected(int position, String item);
 
         void onCancel();
