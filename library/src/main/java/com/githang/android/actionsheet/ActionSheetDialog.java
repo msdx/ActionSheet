@@ -16,8 +16,10 @@ import android.widget.ListView;
 
 
 /**
- * @author haohang
- * @version 15-5-24.
+ * ActionSheet for Android.
+ * @author haohang (msdx.android@qq.com)
+ * @version 0.1 15-5-24.
+ * @since 0.1
  */
 public class ActionSheetDialog extends Dialog {
     private Button mCancel;
@@ -112,11 +114,21 @@ public class ActionSheetDialog extends Dialog {
         });
     }
 
-    public ActionSheetDialog addMenuItem(String items) {
-        mAdapter.add(items);
+    /**
+     * Add menu item.
+     * @param item the text of the item be added.
+     * @return
+     * @since 0.1
+     */
+    public ActionSheetDialog addMenuItem(String item) {
+        mAdapter.add(item);
         return this;
     }
 
+    /**
+     * Show or dismiss menu.
+     * @since 0.1
+     */
     public void toggle() {
         if (isShowing()) {
             dismiss();
@@ -146,10 +158,19 @@ public class ActionSheetDialog extends Dialog {
         isDismissing = false;
     }
 
+    /**
+     * Return the menu listener.
+     * @return
+     */
     public MenuListener getMenuListener() {
         return mMenuListener;
     }
 
+    /**
+     * Set the menu listener
+     * @param menuListener
+     * @isnce 0.1
+     */
     public void setMenuListener(MenuListener menuListener) {
         mMenuListener = menuListener;
     }
@@ -163,9 +184,23 @@ public class ActionSheetDialog extends Dialog {
         return super.onKeyDown(keyCode, event);
     }
 
+    /**
+     * Menu listener.
+     * @since 0.1
+     */
     public interface MenuListener {
+        /**
+         * When one of the menu items is selected, this method is called.
+         * @param position the position of the menu item
+         * @param item the text of the menu item
+         * @since 0.1
+         */
         void onItemSelected(int position, String item);
 
+        /**
+         * This method is called when cancel the menu.
+         * @since 0.1
+         */
         void onCancel();
     }
 }
