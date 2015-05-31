@@ -1,18 +1,20 @@
 # ActionSheet
 ActionSheet for Android.
 
-##For non-Gradle project:
+## Installation
+### For non-Gradle project:
 
 It's interesting.
 
-##For Gradle project:
-### Add dependencies
+###For Gradle project:
+
+Include it into the dependencies section in your project's `build.gradle`:
 
 ```Gradle
     compile 'com.githang:actionsheet:0.1@aar'
 ```
 
-### Usage
+## Usage
 ```java
     /**
      * Create menu, add a menu item but set it invisible.
@@ -23,7 +25,7 @@ It's interesting.
     }
 
     /**
-     * intercept the open menu event to show the custom menu.
+     * Intercept the open menu event to show the custom menu.
      */
     @Override
     public boolean onMenuOpened(int featureId, Menu menu) {

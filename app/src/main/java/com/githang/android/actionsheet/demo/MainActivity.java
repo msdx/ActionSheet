@@ -26,7 +26,7 @@ public class MainActivity extends ActionBarActivity {
     }
 
     /**
-     * intercept the open menu event to show the custom menu.
+     * Intercept the open menu event to show the custom menu.
      */
     @Override
     public boolean onMenuOpened(int featureId, Menu menu) {
