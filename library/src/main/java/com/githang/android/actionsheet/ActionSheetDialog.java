@@ -43,6 +43,14 @@ public class ActionSheetDialog extends Dialog {
     private void initView(Context context) {
         mRootView = View.inflate(context, R.layout.dialog_action_sheet, null);
         mCancel = (Button) mRootView.findViewById(R.id.menu_cancel);
+        mCancel.setText(android.R.string.cancel);
+        mCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                cancel();
+            }
+        });
+
         mMenuItems = (ListView) mRootView.findViewById(R.id.menu_items);
         mAdapter = new ArrayAdapter<String>(context, R.layout.menu_item) {
             @Override
@@ -68,12 +76,6 @@ public class ActionSheetDialog extends Dialog {
         mMenuItems.setAdapter(mAdapter);
         this.setContentView(mRootView);
         initAnim(context);
-        mCancel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                cancel();
-            }
-        });
         mMenuItems.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
