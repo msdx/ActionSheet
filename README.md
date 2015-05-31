@@ -1,30 +1,29 @@
-package com.githang.android.actionsheet;
+# ActionSheet
+ActionSheet for Android.
 
-import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
-import android.view.Menu;
-import android.widget.Toast;
+##For non-Gradle project:
 
+It's interesting.
 
-public class MainActivity extends ActionBarActivity {
-    private ActionSheetDialog mActionSheetDialog;
+##For Gradle project:
+### Add dependencies
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-    }
+```Gradle
+    compile 'com.githang:actionsheet:0.1@aar'
+```
 
+### Usage
+```java
     /**
-     * 创建MENU
+     * Create menu, add a menu item but set it invisible.
      */
     public boolean onCreateOptionsMenu(Menu menu) {
-        menu.add("menu").setVisible(false);// 必须创建一项,设为false之后ActionBar上不会出现菜单按钮。
+        menu.add("menu").setVisible(false);// Create one and set invisible then the menu icon would not show in actionbar.
         return super.onCreateOptionsMenu(menu);
     }
 
     /**
-     * 拦截MENU事件，显示自己的菜单
+     * intercept the open menu event to show the custom menu.
      */
     @Override
     public boolean onMenuOpened(int featureId, Menu menu) {
@@ -46,5 +45,4 @@ public class MainActivity extends ActionBarActivity {
         mActionSheetDialog.show();
         return true;
     }
-
-}
+```
