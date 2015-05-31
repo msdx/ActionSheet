@@ -18,7 +18,7 @@ public class MainActivity extends ActionBarActivity {
     }
 
     /**
-     * 创建MENU
+     * Create menu, add a menu item but set it invisible.
      */
     public boolean onCreateOptionsMenu(Menu menu) {
         menu.add("menu").setVisible(false);// 必须创建一项,设为false之后ActionBar上不会出现菜单按钮。
@@ -26,7 +26,7 @@ public class MainActivity extends ActionBarActivity {
     }
 
     /**
-     * 拦截MENU事件，显示自己的菜单
+     * intercept the open menu event to show the custom menu.
      */
     @Override
     public boolean onMenuOpened(int featureId, Menu menu) {
