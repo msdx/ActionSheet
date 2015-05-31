@@ -1,22 +1,19 @@
-package com.githang.android.actionsheet.demo;
+# ActionSheet
+ActionSheet for Android.
 
-import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
-import android.view.Menu;
-import android.widget.Toast;
+##For non-Gradle project:
 
-import com.githang.android.actionsheet.ActionSheetDialog;
+It's interesting.
 
+##For Gradle project:
+### Add dependencies
 
-public class MainActivity extends ActionBarActivity {
-    private ActionSheetDialog mActionSheetDialog;
+```Gradle
+    compile 'com.githang:actionsheet:0.1@aar'
+```
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-    }
-
+### Usage
+```java
     /**
      * Create menu, add a menu item but set it invisible.
      */
@@ -48,5 +45,4 @@ public class MainActivity extends ActionBarActivity {
         mActionSheetDialog.show();
         return true;
     }
-
-}
+```

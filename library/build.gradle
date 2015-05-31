@@ -1,3 +1,12 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.0'
+    }
+}
+
 apply plugin: 'com.android.library'
 
 android {
@@ -21,3 +30,5 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
 }
+
+apply from: 'https://raw.githubusercontent.com/msdx/gradle-publish/mine/bintray.gradle'
