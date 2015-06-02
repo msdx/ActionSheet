@@ -1,9 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    // You need to copy the attributes into your AppTheme node.
+    <style name="Theme.MenuTheme" parent="android:Theme">
+        <item name="ActionSheetList">@style/ActionSheetList</item>
+        <item name="ActionSheetItem">@style/ActionSheetItem</item>
+        <item name="ActionSheetCancel">@style/ActionSheetCancel</item>
+    </style>
+
     <style name="ActionSheetDialog" parent="android:Theme.Dialog">
         <item name="android:windowContentOverlay">@null</item>
         <item name="android:windowFrame">@null</item>
         <item name="android:windowBackground">@android:color/transparent</item>
         <item name="android:windowNoTitle">true</item>
+    </style>
+    <style name="ActionSheetList">
+        <item name="android:divider">#c9dddddd</item>
+        <item name="android:dividerHeight">1px</item>
+    </style>
+    <style name="ActionSheetItem">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">45dp</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/menu_text</item>
+    </style>
+    <style name="ActionSheetCancel" parent="ActionSheetItem">
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:layout_marginBottom">8dp</item>
+        <item name="android:background">@drawable/menu_item_single</item>
     </style>
 </resources>

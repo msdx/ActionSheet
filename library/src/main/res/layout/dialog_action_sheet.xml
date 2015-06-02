@@ -8,17 +8,10 @@
         android:id="@+id/menu_items"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:divider="#c9dddddd"
-        android:dividerHeight="1px"
+        style="?attr/ActionSheetList"
         android:listSelector="@android:color/transparent"/>
 
     <Button
         android:id="@+id/menu_cancel"
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:layout_marginBottom="8dp"
-        android:textSize="18sp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/menu_item_single"
-        android:textColor="@color/menu_text"/>
+        style="?attr/ActionSheetCancel"/>
 </LinearLayout>

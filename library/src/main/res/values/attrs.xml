@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="ActionSheetList" format="reference"/>
+    <attr name="ActionSheetCancel" format="reference"/>
+    <attr name="ActionSheetItem" format="reference"/>
+</resources>

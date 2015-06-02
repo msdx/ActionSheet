@@ -18,7 +18,7 @@ import android.widget.ListView;
 /**
  * ActionSheet for Android.
  * @author haohang (msdx.android@qq.com)
- * @version 0.1 15-5-24.
+ * @version 0.2
  * @since 0.1
  */
 public class ActionSheetDialog extends Dialog {
@@ -29,6 +29,8 @@ public class ActionSheetDialog extends Dialog {
     private MenuListener mMenuListener;
     private View mRootView;
 
+    private MenuBackground mMenuBg = new MenuBackground(R.drawable.menu_item_top,
+            R.drawable.menu_item_middle, R.drawable.menu_item_bottom, R.drawable.menu_item_single);
     private Animation mShowAnim;
     private Animation mDismissAnim;
 
@@ -63,13 +65,13 @@ public class ActionSheetDialog extends Dialog {
             private void setBackground(int position, View view) {
                 int count = getCount();
                 if (count == 1) {
-                    view.setBackgroundResource(R.drawable.menu_item_single);
+                    view.setBackgroundResource(mMenuBg.single);
                 } else if (position == 0) {
-                    view.setBackgroundResource(R.drawable.menu_item_top);
+                    view.setBackgroundResource(mMenuBg.top);
                 } else if (position == count - 1) {
-                    view.setBackgroundResource(R.drawable.menu_item_bottom);
+                    view.setBackgroundResource(mMenuBg.bottom);
                 } else {
-                    view.setBackgroundResource(R.drawable.menu_item_middle);
+                    view.setBackgroundResource(mMenuBg.middle);
                 }
             }
         };
@@ -88,7 +90,7 @@ public class ActionSheetDialog extends Dialog {
         setOnCancelListener(new OnCancelListener() {
             @Override
             public void onCancel(DialogInterface dialog) {
-                if(mMenuListener != null) {
+                if (mMenuListener != null) {
                     mMenuListener.onCancel();
                 }
             }
@@ -96,8 +98,24 @@ public class ActionSheetDialog extends Dialog {
     }
 
     private void initAnim(Context context) {
-        mShowAnim = AnimationUtils.loadAnimation(context, R.anim.translate_up);
-        mDismissAnim = AnimationUtils.loadAnimation(context, R.anim.translate_down);
+        setShowAnimation(AnimationUtils.loadAnimation(context, R.anim.translate_up));
+        setDismissAnimation(AnimationUtils.loadAnimation(context, R.anim.translate_down));
+    }
+
+    /**
+     * @param animation Showing animation.
+     * @since 0.2
+     */
+    public void setShowAnimation(Animation animation) {
+        mShowAnim = animation;
+    }
+
+    /**
+     * @param animation Dismissing animation.
+     * @since 0.2
+     */
+    public void setDismissAnimation(Animation animation) {
+        mDismissAnim = animation;
         mDismissAnim.setAnimationListener(new Animation.AnimationListener() {
             @Override
             public void onAnimationStart(Animation animation) {
@@ -118,7 +136,7 @@ public class ActionSheetDialog extends Dialog {
 
     /**
      * Add menu item.
-     * @param item the text of the item be added.
+     * @param item The text of the item be added.
      * @return
      * @since 0.1
      */
@@ -177,6 +195,21 @@ public class ActionSheetDialog extends Dialog {
         mMenuListener = menuListener;
     }
 
+    /**
+     * Set the menu item background.
+     * @param top The top item's background.
+     * @param middle The middle item's background.
+     * @param bottom The bottom item's background.
+     * @param single The background of the item, if there is only one in menu.
+     * @since 0.2
+     */
+    public void setMenuBackground(int top, int middle, int bottom, int single) {
+        mMenuBg.top = top;
+        mMenuBg.middle = middle;
+        mMenuBg.bottom = bottom;
+        mMenuBg.single = single;
+    }
+
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_MENU) {
@@ -204,5 +237,25 @@ public class ActionSheetDialog extends Dialog {
          * @since 0.1
          */
         void onCancel();
+    }
+
+    /**
+     * The background of each item of menu.
+     * @since 0.2
+     */
+    public static class MenuBackground {
+        public int top;
+        public int middle;
+        public int bottom;
+        public int single;
+
+        public MenuBackground() {}
+
+        public MenuBackground(int top, int middle, int bottom, int single) {
+            this.top = top;
+            this.middle = middle;
+            this.bottom = bottom;
+            this.single = single;
+        }
     }
 }

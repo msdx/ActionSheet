@@ -2,7 +2,9 @@
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
+        <item name="ActionSheetList">@style/ActionSheetList</item>
+        <item name="ActionSheetItem">@style/ActionSheetItem</item>
+        <item name="ActionSheetCancel">@style/ActionSheetCancel</item>
     </style>
 
 </resources>
