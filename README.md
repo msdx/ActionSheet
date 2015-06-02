@@ -1,6 +1,8 @@
 # ActionSheet
 ActionSheet for Android.
 
+ [ ![Download](https://api.bintray.com/packages/msdx/maven/ActionSheet/images/download.svg) ](https://bintray.com/msdx/maven/ActionSheet/_latestVersion)
+
 ## Installation
 ### For non-Gradle project:
 
@@ -11,7 +13,7 @@ It's interesting.
 Include it into the dependencies section in your project's `build.gradle`:
 
 ```Gradle
-    compile 'com.githang:actionsheet:0.1@aar'
+    compile 'com.githang:actionsheet:0.2@aar'
 ```
 
 ## Usage
@@ -47,4 +49,11 @@ Include it into the dependencies section in your project's `build.gradle`:
         mActionSheetDialog.show();
         return true;
     }
+```
+
+You need to merge the node into your `AppTheme` in styles.xml:
+```xml
+        <item name="ActionSheetList">@style/ActionSheetList</item>
+        <item name="ActionSheetItem">@style/ActionSheetItem</item>
+        <item name="ActionSheetCancel">@style/ActionSheetCancel</item>
 ```
